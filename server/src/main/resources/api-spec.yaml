@@ -1,0 +1,33 @@
+openapi: 3.0.0
+info:
+  title: Small OpenAPI example
+  version: 1.0.0
+paths:
+  /message:
+    get:
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Message"
+
+      tags:
+        - Message
+      summary: Returns a message object
+
+components:
+  schemas:
+    Message:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        message:
+          type: string
+          example: "Hello World"
+      required:
+        - id
+        - message
